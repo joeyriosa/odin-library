@@ -29,13 +29,6 @@ function deleteBook(index) {
     }
 }
 
-const book1 = new Book('To Kill a Mocking Bird', 'Harper Lee', 1000, true);
-const book2 = new Book('1984', 'George Orwell', 800, false);
-myLibrary.push(book1);
-myLibrary.push(book2);
-
-console.log(myLibrary);
-
 function displayBooks() {
     const tableBody = document.getElementById('arrayTableBody');
     tableBody.innerHTML = '';
