@@ -14,16 +14,216 @@ table {
 }
 
 th, td {
-    border: 1px solid black;
+    border-bottom: 1px solid #ddd;
     padding: 2px;
     text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Set fixed width for each column */
+th:nth-child(-n+2), td:nth-child(-n+2) {
+    width: 35%;
+}
+th:nth-child(n+3), td:nth-child(n+3) {
+    width: 10%;
+    text-align: center;
 }
 
 #container {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 60%;
     justify-content: center;
     margin: 0 auto;
 }
 
+.black-white-button {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 2px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: 200px;
+    align-self: center;
+}
+
+.black-white-button:hover {
+    background-color: #0056b3;
+    border: 2px solid #0056b3;
+}
+
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+
+    animation: fade-out 0.1s ease-out;
+}
+
+dialog[open] {
+    animation: fade-in 0.1s ease-out;
+}
+
+dialog[open]::backdrop {
+    animation: backdrop-fade-in 0.1s ease-out forwards;
+}
+
+.form-container {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.form-entry-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+label {
+    font-size: 1.1rem;
+    color: rgb(88, 88, 88);
+    padding: 5px 0;
+    margin-right: 10px;
+}
+
+input {
+    outline: none;
+    font-size: 1.1rem;
+    border: 1px solid #c3c4c5;
+    border-radius: 3px;
+    padding: 5px 8px;
+    margin: 2px 0px;
+}
+
+input:focus {
+    border: 1px solid rgb(0, 140, 255);
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+input + span {
+    position: relative;
+}
+
+.form-button-container {
+    display: flex;
+    width: 50%;
+    margin: 0px auto;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    justify-self: self-start;
+    margin-left: 5px;
+}
+
+input:invalid + span::after {
+    font-size: 1.1rem;
+    display: inline-block;
+    content: "*";
+    color: red;
+    padding-left: 8px;
+    padding-top: 10px;
+    transform: scale(1.5);
+}
+
+.close-button {
+    border: 1px solid #ced4da;
+    color: #6c757d;
+    background-color: #f8f9fa;
+}
+
+.close-button:hover {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+}
+
+.delete-button {
+    background-color: red;
+    color: #fff;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin: 2px 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    align-self: center;
+}
+
+.delete-button:hover {
+    background-color: #f77cb5;
+    border: 2px solid #f77cb5;
+}
+
+
+/* Animation keyframes */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleY(0);
+        display: none;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scaleY(1);
+        display: block;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scaleY(1);
+        display: block;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleY(0);
+        display: none;
+    }
+}
+
+@keyframes backdrop-fade-in {
+    0% {
+        background-color: rgb(0 0 0 / 0%);
+    }
+
+    100% {
+        background-color: rgb(0 0 0 / 25%);
+    }
+}
