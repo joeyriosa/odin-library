@@ -1,15 +1,22 @@
 const myLibrary = [];
 
-function Book(title, author, pages, isRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead || false;
+class Book {
+    constructor(title, author, pages, isRead)
+    {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead || false;
+    }
+
+    setReadStatus(isReadValue) {
+        this.isRead = isReadValue;
+    }
 }
 
-Book.prototype.setReadStatus = function(isReadValue) {
-    this.isRead = isReadValue;
-}
+// Book.prototype.setReadStatus = function(isReadValue) {
+//     this.isRead = isReadValue;
+// }
 
 function addBookToLibrary() {
     const author = document.getElementById('author').value;
